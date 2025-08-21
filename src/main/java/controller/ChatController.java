@@ -16,6 +16,7 @@ public class ChatController { // Message Broker Class
 	@SendTo("/topic/public") // means to which topic or queue we want to send this one
 	public ChatMessage sendMessage(@Payload ChatMessage chatMessage) { // ChatMessage is a body class that will map the payload with our backend class
 		// but in websockets we use @payload instead of @RequestBody
+		chatMessage.setContent(chatMessage.getContent() + "F");
 		return chatMessage;
 	}
 	
